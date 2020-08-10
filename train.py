@@ -41,8 +41,7 @@ if __name__ == '__main__':
     path_dict = {"train": "data/train.csv", "valid": "data/valid.csv", "test": "data/test.csv"}
     config = {"batch": 256, "epochs": 600}
     # read data
-    X_train, y_train, y_train_sec, X_valid, y_valid, y_valid_sec, X_test, y_test, y_test_sec, y_train_mean, y_train_std \
-        = process_data(path_dict, time_step, seq_len)
+    X_train, y_train, _, X_valid, y_valid, _, X_test, y_test, _, _, _ = process_data(path_dict, time_step, seq_len)
     # build model
     units = [X_train.shape[1], X_train.shape[2], 32, 32, 1]
     gru = get_gru(units)
